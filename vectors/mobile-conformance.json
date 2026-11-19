@@ -1,0 +1,157 @@
+{
+  "suite": "mobile-conformance",
+  "protocolVersion": 1,
+  "description": "Protocol v1 section 23. Which vector files a mobile SDK (the native iOS and Android SDKs, and so the Flutter and React Native wrappers over them) must pass. Every file in this directory appears once. `required` files are run by each native SDK's tests; `n/a` files cover server-side or web-only behaviour a mobile SDK does not implement. Hand-maintained: the protocol tests fail when a vector file is missing from it or listed twice.",
+  "suites": [
+    {
+      "file": "account-hash",
+      "mobile": "n/a",
+      "why": "server-side account hashing; an SDK never hashes account ids"
+    },
+    {
+      "file": "assessment-id",
+      "mobile": "n/a",
+      "why": "assessment ids are sealed and read by the server only"
+    },
+    {
+      "file": "attest-binding",
+      "mobile": "required",
+      "why": "the binding bytes B, request hash and client data hash are built natively on both platforms"
+    },
+    {
+      "file": "card-hash",
+      "mobile": "n/a",
+      "why": "payment fraud hashing, server-side"
+    },
+    {
+      "file": "device-hash",
+      "mobile": "n/a",
+      "why": "web device hash, server-side"
+    },
+    {
+      "file": "fields",
+      "mobile": "required",
+      "why": "the action and cdata charsets, which an SDK validates before sending"
+    },
+    {
+      "file": "gateway-codes",
+      "mobile": "n/a",
+      "why": "gateway error normalisation, server-side"
+    },
+    {
+      "file": "hostnames",
+      "mobile": "n/a",
+      "why": "web hostname binding; an app challenge carries an app id, not a hostname"
+    },
+    {
+      "file": "keys",
+      "mobile": "required",
+      "why": "site-key format only (the `siteKey` cases); secret and management keys never reach an app"
+    },
+    {
+      "file": "mobile-bridge",
+      "mobile": "required",
+      "why": "both directions of the bridge: parseCases for the page-to-native message validator, nativeCases for the messages an SDK sends to the page (each outgoing message must parse), and urlCases for the hosted page URL"
+    },
+    {
+      "file": "mobile-client",
+      "mobile": "required",
+      "why": "Play Integrity and App Attest error mapping, and the reading of API responses"
+    },
+    {
+      "file": "mobile-conformance",
+      "mobile": "n/a",
+      "why": "this manifest"
+    },
+    {
+      "file": "otp",
+      "mobile": "n/a",
+      "why": "account verification codes, server-side"
+    },
+    {
+      "file": "pan-scan",
+      "mobile": "n/a",
+      "why": "payment fraud card scan, server-side"
+    },
+    {
+      "file": "phone-hash",
+      "mobile": "n/a",
+      "why": "SMS toll fraud hashing, server-side"
+    },
+    {
+      "file": "policy",
+      "mobile": "n/a",
+      "why": "firewall policy, server-side"
+    },
+    {
+      "file": "policy-rules-invalid",
+      "mobile": "n/a",
+      "why": "firewall policy rules, server-side"
+    },
+    {
+      "file": "policy-rules-valid",
+      "mobile": "n/a",
+      "why": "firewall policy rules, server-side"
+    },
+    {
+      "file": "pow",
+      "mobile": "required",
+      "why": "sha256-v1 proof of work is solved natively on both platforms"
+    },
+    {
+      "file": "puzzle",
+      "mobile": "n/a",
+      "why": "puzzle schemas; the native sheet sends the puzzle fields the page reads (mobile-bridge nativeCases), and mobile-client covers the solve response"
+    },
+    {
+      "file": "reasons",
+      "mobile": "n/a",
+      "why": "reason codes are read by relying parties, not by an SDK"
+    },
+    {
+      "file": "relying-party",
+      "mobile": "n/a",
+      "why": "siteverify checks, server-side"
+    },
+    {
+      "file": "score",
+      "mobile": "n/a",
+      "why": "score quantisation, server-side"
+    },
+    {
+      "file": "sdk-conformance",
+      "mobile": "n/a",
+      "why": "the server SDK conformance manifest; a mobile SDK is not a server SDK"
+    },
+    {
+      "file": "sdk-http",
+      "mobile": "n/a",
+      "why": "server SDK HTTP behaviour (siteverify calls and retries); a mobile SDK calls the app endpoints instead"
+    },
+    {
+      "file": "sdk-schemas",
+      "mobile": "n/a",
+      "why": "server SDK response schemas for siteverify; a mobile SDK never calls siteverify"
+    },
+    {
+      "file": "siteverify",
+      "mobile": "n/a",
+      "why": "siteverify bodies, server-side"
+    },
+    {
+      "file": "spend",
+      "mobile": "n/a",
+      "why": "spend shards, server-side"
+    },
+    {
+      "file": "transaction-data",
+      "mobile": "n/a",
+      "why": "payment fraud request, server-side"
+    },
+    {
+      "file": "username-canon",
+      "mobile": "n/a",
+      "why": "account protection, server-side"
+    }
+  ]
+}

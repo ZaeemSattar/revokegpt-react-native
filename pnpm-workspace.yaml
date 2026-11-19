@@ -1,0 +1,15 @@
+# The React Native package is its own pnpm root (plan R8): react-native's dependency tree and build
+# scripts never enter the monorepo lockfile. The same safety settings as the root workspace.
+packages:
+  - .
+
+minimumReleaseAge: 10080
+minimumReleaseAgeIgnoreMissingTime: false
+trustPolicy: no-downgrade
+blockExoticSubdeps: true
+strictDepBuilds: true
+dangerouslyAllowAllBuilds: false
+engineStrict: true
+allowBuilds:
+  # jest-haste-map's optional native file watcher: its prebuilt binary is enough, no build script.
+  "@parcel/watcher": false

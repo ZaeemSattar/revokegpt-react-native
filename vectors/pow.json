@@ -1,0 +1,765 @@
+{
+  "suite": "pow",
+  "protocolVersion": 1,
+  "description": "sha256-v1 proof of work. Valid cases use the lowest nonce per sub-puzzle. Generated salts are the first 16 bytes of SHA-256(\"rg-vector-\" + index), base64url. solutions may be any valid nonces; these are the lowest. Each invalid case breaks one MUST-reject rule; where possible its solutions are valid proof of work under the lax reading (lenient base64, zero-padded or truncated salt, wrapping u8 index, coerced or u64-wrapped nonces), so a verifier that skips that rule accepts it. The difficultyBits 33 case carries nonce 14085872180, which meets 33 bits at sub-puzzle 0 of the 8-bit known salt (found offline, checked with node:crypto), so only the 1..32 range rule rejects it. The two out-of-range nonces were found with node:crypto: the first even value at or above 2^53, and the smallest k >= 1 for which -k wrapped to u64, that meets 8 bits at sub-puzzle 1 of the 8-bit known salt. The nonce-is-true and nonce-is-null cases (8 bits, count 1) each use the salt made of the first 16 bytes of SHA-256(\"rg-vector-coerce-true-\" + j) or SHA-256(\"rg-vector-coerce-null-\" + j), for the smallest j >= 0 where nonce 1 (Number(true)) or nonce 0 (Number(null)) meets 8 bits at sub-puzzle 0, found with node:crypto; so a verifier that coerces nonces accepts them and only the integer type rule rejects them.",
+  "cases": [
+    {
+      "name": "known: 8 bits x 2",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 8,
+          "count": 2
+        },
+        "solutions": [
+          210,
+          342
+        ]
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "name": "known: 12 bits x 3",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 12,
+          "count": 3
+        },
+        "solutions": [
+          8618,
+          4174,
+          2643
+        ]
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "name": "generated 0: 1 bits x 1",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "xD8LmqDZHVVB9z2ug_akTg",
+          "difficultyBits": 1,
+          "count": 1
+        },
+        "solutions": [
+          0
+        ]
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "name": "generated 1: 1 bits x 16",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "ZxT51Pq0UiHsIJqHUpF_Ow",
+          "difficultyBits": 1,
+          "count": 16
+        },
+        "solutions": [
+          2,
+          0,
+          1,
+          0,
+          0,
+          5,
+          3,
+          1,
+          2,
+          2,
+          0,
+          2,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "name": "generated 2: 4 bits x 1",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "HJyLY1aVWkKQTyzjdmfFRw",
+          "difficultyBits": 4,
+          "count": 1
+        },
+        "solutions": [
+          12
+        ]
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "name": "generated 3: 4 bits x 16",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "xFEWvxfiQGq7D5EPX2yS5w",
+          "difficultyBits": 4,
+          "count": 16
+        },
+        "solutions": [
+          12,
+          7,
+          23,
+          56,
+          17,
+          2,
+          10,
+          21,
+          2,
+          54,
+          49,
+          5,
+          7,
+          14,
+          24,
+          13
+        ]
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "name": "generated 4: 10 bits x 1",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "DwrFFPhgW-95QeEOVKUSjQ",
+          "difficultyBits": 10,
+          "count": 1
+        },
+        "solutions": [
+          446
+        ]
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "name": "generated 5: 10 bits x 16",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "WytiEULD3JbU4jQWWjXUiQ",
+          "difficultyBits": 10,
+          "count": 16
+        },
+        "solutions": [
+          1575,
+          748,
+          2180,
+          541,
+          4516,
+          787,
+          832,
+          352,
+          337,
+          647,
+          3229,
+          1758,
+          341,
+          1680,
+          1022,
+          1031
+        ]
+      },
+      "expected": {
+        "valid": true
+      }
+    },
+    {
+      "name": "invalid: off-by-one nonce",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 12,
+          "count": 3
+        },
+        "solutions": [
+          8618,
+          4174,
+          2644
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: too few solutions",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 8,
+          "count": 2
+        },
+        "solutions": [
+          210
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: too many solutions",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 8,
+          "count": 2
+        },
+        "solutions": [
+          210,
+          342,
+          0
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: algorithm sha256-v2 (otherwise valid)",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v2",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 8,
+          "count": 2
+        },
+        "solutions": [
+          210,
+          342
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: padded salt (otherwise valid)",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw==",
+          "difficultyBits": 8,
+          "count": 2
+        },
+        "solutions": [
+          210,
+          342
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: non-canonical salt, leftover bits set (decodes leniently to the p8 salt)",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODx",
+          "difficultyBits": 8,
+          "count": 2
+        },
+        "solutions": [
+          210,
+          342
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: 15-byte salt (solutions valid for the salt zero-padded to 16 bytes)",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0O",
+          "difficultyBits": 8,
+          "count": 2
+        },
+        "solutions": [
+          86,
+          84
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: 17-byte salt (solutions valid for its first 16 bytes)",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODxA",
+          "difficultyBits": 8,
+          "count": 2
+        },
+        "solutions": [
+          210,
+          342
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: difficultyBits 0",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 0,
+          "count": 2
+        },
+        "solutions": [
+          0,
+          0
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: difficultyBits 33 (nonce 14085872180 meets 33 bits at sub-puzzle 0; found offline, re-checked with node:crypto)",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 33,
+          "count": 1
+        },
+        "solutions": [
+          14085872180
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: count 0 (empty solutions)",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 8,
+          "count": 0
+        },
+        "solutions": []
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: count 257 (solutions valid if the u8 index wraps)",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 1,
+          "count": 257
+        },
+        "solutions": [
+          1,
+          0,
+          0,
+          0,
+          4,
+          1,
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          1,
+          0,
+          4,
+          3,
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          3,
+          1,
+          1,
+          0,
+          0,
+          0,
+          3,
+          1,
+          0,
+          1,
+          1,
+          2,
+          0,
+          1,
+          2,
+          3,
+          0,
+          0,
+          0,
+          3,
+          1,
+          0,
+          2,
+          0,
+          3,
+          0,
+          1,
+          3,
+          1,
+          5,
+          0,
+          1,
+          0,
+          0,
+          0,
+          6,
+          1,
+          7,
+          2,
+          0,
+          1,
+          3,
+          1,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          6,
+          2,
+          0,
+          0,
+          0,
+          3,
+          1,
+          2,
+          7,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          5,
+          1,
+          1,
+          2,
+          2,
+          0,
+          2,
+          0,
+          2,
+          0,
+          1,
+          0,
+          3,
+          0,
+          1,
+          3,
+          2,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          3,
+          1,
+          0,
+          1,
+          5,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          4,
+          1,
+          1,
+          1,
+          2,
+          1,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          2,
+          2,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          2,
+          3,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          1,
+          4,
+          1,
+          4,
+          3,
+          0,
+          3,
+          3,
+          0,
+          1,
+          3,
+          0,
+          2,
+          0,
+          0,
+          3,
+          2,
+          1,
+          2,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          2,
+          1
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: nonce is the string \"210\"",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 8,
+          "count": 2
+        },
+        "solutions": [
+          "210",
+          342
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: nonce is the float 210.5",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 8,
+          "count": 2
+        },
+        "solutions": [
+          210.5,
+          342
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: nonce is true (coerces to 1, valid PoW at 8 bits for salt \"rg-vector-coerce-true-100\")",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "ssoWznq5e7XKtJSmxanHKg",
+          "difficultyBits": 8,
+          "count": 1
+        },
+        "solutions": [
+          true
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: nonce is null (coerces to 0, valid PoW at 8 bits for salt \"rg-vector-coerce-null-65\")",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "9FU2-GcPnawz-ojgwh-clw",
+          "difficultyBits": 8,
+          "count": 1
+        },
+        "solutions": [
+          null
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: nonce 9007199254742068 > 2^53 - 1 (u64 PoW valid; found by searching even values upward from 2^53)",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 8,
+          "count": 2
+        },
+        "solutions": [
+          210,
+          9007199254742068
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    },
+    {
+      "name": "invalid: nonce -293 (u64 wrap 2^64 - 293 is valid PoW; found by searching k = 1, 2, ...)",
+      "input": {
+        "params": {
+          "algorithm": "sha256-v1",
+          "salt": "AAECAwQFBgcICQoLDA0ODw",
+          "difficultyBits": 8,
+          "count": 2
+        },
+        "solutions": [
+          210,
+          -293
+        ]
+      },
+      "expected": {
+        "valid": false
+      }
+    }
+  ]
+}

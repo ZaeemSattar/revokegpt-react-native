@@ -1,0 +1,89 @@
+{
+  "name": "@revokegpt/react-native",
+  "version": "0.1.1",
+  "description": "RevokeGPT bot protection for React Native apps: a TurboModule over the native iOS and Android SDKs, with an Expo config plugin.",
+  "license": "MIT",
+  "revokegpt": {
+    "visibility": "mirror"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZaeemSattar/revokegpt-react-native.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "react-native": "src/index.ts",
+  "source": "src/index.ts",
+  "files": [
+    "src/index.ts",
+    "src/NativeRevokeGPT.ts",
+    "src/errors.ts",
+    "src/validation.ts",
+    "lib",
+    "ios/RNRevokeGPT.h",
+    "ios/RNRevokeGPT.mm",
+    "ios/RNRevokeGPTImpl.swift",
+    "ios/vendor",
+    "android/build.gradle",
+    "android/src/main",
+    "RevokeGPTReactNative.podspec",
+    "app.plugin.js",
+    "plugin/build",
+    "LICENSE",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "node -e \"fs.rmSync('lib',{recursive:true,force:true});fs.rmSync('plugin/build',{recursive:true,force:true})\" && tsc -p tsconfig.build.json && tsc -p plugin/tsconfig.build.json",
+    "vendor": "node -e \"process.exit(0)\"",
+    "pack:prepare": "pnpm run vendor && pnpm run build",
+    "test": "jest",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p plugin/tsconfig.json",
+    "lint": "biome check ."
+  },
+  "codegenConfig": {
+    "name": "RNRevokeGPTSpec",
+    "type": "modules",
+    "jsSrcsDir": "src",
+    "android": {
+      "javaPackageName": "com.revokegpt.reactnative"
+    },
+    "ios": {
+      "modulesProvider": {
+        "RevokeGPT": "RNRevokeGPT"
+      }
+    }
+  },
+  "peerDependencies": {
+    "@expo/config-plugins": ">=58.0.0",
+    "react": ">=19.3.0",
+    "react-native": ">=0.88.1"
+  },
+  "peerDependenciesMeta": {
+    "@expo/config-plugins": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "7.29.13",
+    "@babel/preset-env": "7.29.7",
+    "@babel/preset-typescript": "7.29.7",
+    "@biomejs/biome": "2.6.3",
+    "@expo/config-plugins": "58.0.12",
+    "@types/jest": "30.0.0",
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "babel-jest": "30.5.2",
+    "jest": "30.5.2",
+    "react": "19.3.1",
+    "react-native": "0.88.1",
+    "typescript": "7.0.2"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "packageManager": "pnpm@12.16.1"
+}

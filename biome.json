@@ -1,0 +1,47 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "root": true,
+  "files": {
+    "includes": [
+      "**",
+      "!node_modules",
+      "!lib",
+      "!plugin/build",
+      "!ios/vendor",
+      "!android/build",
+      "!android/.gradle",
+      "!pnpm-lock.yaml",
+      "!**/*.md",
+      "!example/node_modules",
+      "!example/pnpm-lock.yaml",
+      "!example/ios/Pods",
+      "!example/ios/build",
+      "!example/ios/RevokeGPTExample.xcworkspace",
+      "!example/android/build",
+      "!example/android/app/build",
+      "!example/android/.gradle",
+      "!example/android/.kotlin",
+      "!**/.cxx",
+      "!**/.gradle",
+      "!**/.kotlin",
+      "!**/build"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "recommended"
+    }
+  }
+}

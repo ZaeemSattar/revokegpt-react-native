@@ -1,0 +1,103 @@
+{
+  "suite": "keys",
+  "protocolVersion": 1,
+  "description": "Key validation and hashing. hmacSha256Hex = lowercase hex HMAC-SHA-256(key = pepper bytes, message = UTF-8('rg-key-hash-v1:' + key)). The pepper below is a published test value; production peppers are server-side secrets.",
+  "cases": [
+    {
+      "name": "secret key: known valid",
+      "input": { "key": "rgsk_7Hq2LmZ9xK4a_Rb3Nf8Tw1Yc6Vg0Jp5Ds2Ek9Ux4Ih7Ma07q80x" },
+      "expected": { "valid": true, "kind": "secret", "keyId": "7Hq2LmZ9xK4a" }
+    },
+    {
+      "name": "management key: known valid",
+      "input": { "key": "rgmk_7Hq2LmZ9xK4a_Rb3Nf8Tw1Yc6Vg0Jp5Ds2Ek9Ux4Ih7Ma3oS9Sq" },
+      "expected": { "valid": true, "kind": "management", "keyId": "7Hq2LmZ9xK4a" }
+    },
+    {
+      "name": "secret key: corrupted checksum",
+      "input": { "key": "rgsk_7Hq2LmZ9xK4a_Rb3Nf8Tw1Yc6Vg0Jp5Ds2Ek9Ux4Ih7Ma07q80y" },
+      "expected": { "valid": false }
+    },
+    {
+      "name": "secret key: trailing newline",
+      "input": { "key": "rgsk_7Hq2LmZ9xK4a_Rb3Nf8Tw1Yc6Vg0Jp5Ds2Ek9Ux4Ih7Ma07q80x\n" },
+      "expected": { "valid": false }
+    },
+    {
+      "name": "secret key: leading space",
+      "input": { "key": " rgsk_7Hq2LmZ9xK4a_Rb3Nf8Tw1Yc6Vg0Jp5Ds2Ek9Ux4Ih7Ma07q80x" },
+      "expected": { "valid": false }
+    },
+    {
+      "name": "secret key: uppercased",
+      "input": { "key": "RGSK_7HQ2LMZ9XK4A_RB3NF8TW1YC6VG0JP5DS2EK9UX4IH7MA3A7MOK" },
+      "expected": { "valid": false }
+    },
+    {
+      "name": "secret key: legacy sk_ prefix",
+      "input": { "key": "sk_7Hq2LmZ9xK4a_Rb3Nf8Tw1Yc6Vg0Jp5Ds2Ek9Ux4Ih7Ma07q80x" },
+      "expected": { "valid": false }
+    },
+    {
+      "name": "secret key: wrong length (one char short)",
+      "input": { "key": "rgsk_7Hq2LmZ9xK4a_Rb3Nf8Tw1Yc6Vg0Jp5Ds2Ek9Ux4Ih7Ma07q80" },
+      "expected": { "valid": false }
+    },
+    {
+      "name": "secret key: wrong prefix rgpk",
+      "input": { "key": "rgpk_7Hq2LmZ9xK4a_Rb3Nf8Tw1Yc6Vg0Jp5Ds2Ek9Ux4Ih7Ma07q80x" },
+      "expected": { "valid": false }
+    },
+    {
+      "name": "secret key: empty",
+      "input": { "key": "" },
+      "expected": { "valid": false }
+    },
+    {
+      "name": "hash: secret key with test pepper",
+      "input": {
+        "key": "rgsk_7Hq2LmZ9xK4a_Rb3Nf8Tw1Yc6Vg0Jp5Ds2Ek9Ux4Ih7Ma07q80x",
+        "pepperHex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"
+      },
+      "expected": { "hmacSha256Hex": "298d3af738991c6f8ad8baaf63988516ccf9a445e5976dc6e7468e1e84c56381" }
+    },
+    {
+      "name": "hash: management key with test pepper",
+      "input": {
+        "key": "rgmk_7Hq2LmZ9xK4a_Rb3Nf8Tw1Yc6Vg0Jp5Ds2Ek9Ux4Ih7Ma3oS9Sq",
+        "pepperHex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f"
+      },
+      "expected": { "hmacSha256Hex": "f6cd1a0628181cb2c9f3e89a09d8062dd6275e476220ebb3052c6d8386f18f73" }
+    },
+    {
+      "name": "site key: valid",
+      "input": { "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw" },
+      "expected": { "valid": true }
+    },
+    {
+      "name": "site key: too short",
+      "input": { "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8T" },
+      "expected": { "valid": false }
+    },
+    {
+      "name": "site key: too long",
+      "input": { "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Twx" },
+      "expected": { "valid": false }
+    },
+    {
+      "name": "site key: secret prefix",
+      "input": { "siteKey": "rgsk_7Hq2LmZ9xK4aRb3Nf8Tw" },
+      "expected": { "valid": false }
+    },
+    {
+      "name": "site key: trailing newline",
+      "input": { "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw\n" },
+      "expected": { "valid": false }
+    },
+    {
+      "name": "site key: non-alphanumeric character",
+      "input": { "siteKey": "rgpk_7Hq2LmZ9xK4a-b3Nf8Tw" },
+      "expected": { "valid": false }
+    }
+  ]
+}

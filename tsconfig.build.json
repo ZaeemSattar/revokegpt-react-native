@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "bundler",
+    "types": ["react-native"],
+    "noEmit": false
+  },
+  "exclude": ["src/__tests__"]
+}

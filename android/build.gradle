@@ -1,0 +1,42 @@
+// The React Native package's Android side: the TurboModule over the native SDK, which it depends
+// on at the same version as this package (plan R7; tools/mobile-vendor checks the pin). The app's
+// build supplies the Android Gradle Plugin and React Native's Gradle plugin, which runs codegen
+// for this library (package.json codegenConfig). In the monorepo the example app resolves the
+// artifact from a locally published Maven repository (sdks/android publishes it), not a composite
+// build: React Native's Gradle (9.4) is older than the one the SDK's build needs.
+apply plugin: "com.android.library"
+// AGP 9 compiles Kotlin itself; an app that opts out (`android.builtInKotlin=false`, as React
+// Native 0.88's template does) needs the Kotlin plugin here too.
+if (project.findProperty("android.builtInKotlin")?.toString() == "false") {
+    apply plugin: "org.jetbrains.kotlin.android"
+}
+apply plugin: "com.facebook.react"
+
+android {
+    namespace "com.revokegpt.reactnative"
+    compileSdk 37
+
+    defaultConfig {
+        // The native SDK's minSdk.
+        minSdk 24
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    testOptions {
+        unitTests.all {
+            testLogging { events "passed", "skipped", "failed" }
+        }
+    }
+}
+
+dependencies {
+    implementation "com.facebook.react:react-android"
+    implementation "com.revokegpt:revokegpt-android:0.1.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0"
+    testImplementation "junit:junit:4.13.2"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.11.0"
+}

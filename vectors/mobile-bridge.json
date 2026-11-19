@@ -1,0 +1,1971 @@
+{
+  "suite": "mobile-bridge",
+  "protocolVersion": 1,
+  "description": "Protocol v1 section 23. `parseCases`: `raw` (an object, or a string of message text) through parsePageMessage; `valid` false means null, and `parsed` is the whole expected result. `nativeCases`: the same for parseNativeMessage (the hosted page reading an SDK message; text only). `urlCases`: appPageUrl. Layout differs from section 12 (`parseCases`, `nativeCases` and `urlCases` instead of `cases`).",
+  "parseCases": [
+    {
+      "name": "ready",
+      "raw": {
+        "rg": 1,
+        "type": "ready"
+      },
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "ready"
+      }
+    },
+    {
+      "name": "token",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "dGVzdC10b2tlbi1mb3Itc2Rr_-AZaz09"
+      },
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "dGVzdC10b2tlbi1mb3Itc2Rr_-AZaz09"
+      }
+    },
+    {
+      "name": "token: 1 character",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "x"
+      },
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "x"
+      }
+    },
+    {
+      "name": "token: 2048 characters",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+      },
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+      }
+    },
+    {
+      "name": "error",
+      "raw": {
+        "rg": 1,
+        "type": "error",
+        "id": "a1",
+        "code": "pow-invalid"
+      },
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "error",
+        "id": "a1",
+        "code": "pow-invalid"
+      }
+    },
+    {
+      "name": "error: 64-character code",
+      "raw": {
+        "rg": 1,
+        "type": "error",
+        "id": "a1",
+        "code": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      },
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "error",
+        "id": "a1",
+        "code": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      }
+    },
+    {
+      "name": "error: digits and hyphens",
+      "raw": {
+        "rg": 1,
+        "type": "error",
+        "id": "a1",
+        "code": "0-9"
+      },
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "error",
+        "id": "a1",
+        "code": "0-9"
+      }
+    },
+    {
+      "name": "cancel",
+      "raw": {
+        "rg": 1,
+        "type": "cancel",
+        "id": "a1"
+      },
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "cancel",
+        "id": "a1"
+      }
+    },
+    {
+      "name": "height: 120",
+      "raw": {
+        "rg": 1,
+        "type": "height",
+        "px": 120
+      },
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "height",
+        "px": 120
+      }
+    },
+    {
+      "name": "height: 480",
+      "raw": {
+        "rg": 1,
+        "type": "height",
+        "px": 480
+      },
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "height",
+        "px": 480
+      }
+    },
+    {
+      "name": "height: 2000",
+      "raw": {
+        "rg": 1,
+        "type": "height",
+        "px": 2000
+      },
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "height",
+        "px": 2000
+      }
+    },
+    {
+      "name": "id: 64 characters",
+      "raw": {
+        "rg": 1,
+        "type": "cancel",
+        "id": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      },
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "cancel",
+        "id": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      }
+    },
+    {
+      "name": "id: underscore, hyphen, digits",
+      "raw": {
+        "rg": 1,
+        "type": "cancel",
+        "id": "Az_09-"
+      },
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "cancel",
+        "id": "Az_09-"
+      }
+    },
+    {
+      "name": "rg: 2",
+      "raw": {
+        "rg": 2,
+        "type": "ready"
+      },
+      "valid": false
+    },
+    {
+      "name": "rg: 0",
+      "raw": {
+        "rg": 0,
+        "type": "ready"
+      },
+      "valid": false
+    },
+    {
+      "name": "rg: string \"1\"",
+      "raw": {
+        "rg": "1",
+        "type": "ready"
+      },
+      "valid": false
+    },
+    {
+      "name": "rg: true",
+      "raw": {
+        "rg": true,
+        "type": "ready"
+      },
+      "valid": false
+    },
+    {
+      "name": "rg: 1.5",
+      "raw": {
+        "rg": 1.5,
+        "type": "ready"
+      },
+      "valid": false
+    },
+    {
+      "name": "rg: missing",
+      "raw": {
+        "type": "ready"
+      },
+      "valid": false
+    },
+    {
+      "name": "type: unknown",
+      "raw": {
+        "rg": 1,
+        "type": "close"
+      },
+      "valid": false
+    },
+    {
+      "name": "type: missing",
+      "raw": {
+        "rg": 1
+      },
+      "valid": false
+    },
+    {
+      "name": "type: number",
+      "raw": {
+        "rg": 1,
+        "type": 1
+      },
+      "valid": false
+    },
+    {
+      "name": "type: uppercase",
+      "raw": {
+        "rg": 1,
+        "type": "Ready"
+      },
+      "valid": false
+    },
+    {
+      "name": "type: __proto__",
+      "raw": {
+        "rg": 1,
+        "type": "__proto__"
+      },
+      "valid": false
+    },
+    {
+      "name": "type: constructor",
+      "raw": {
+        "rg": 1,
+        "type": "constructor"
+      },
+      "valid": false
+    },
+    {
+      "name": "type: native message (puzzle)",
+      "raw": {
+        "rg": 1,
+        "type": "puzzle",
+        "id": "a1"
+      },
+      "valid": false
+    },
+    {
+      "name": "ready: extra key",
+      "raw": {
+        "rg": 1,
+        "type": "ready",
+        "x": 1
+      },
+      "valid": false
+    },
+    {
+      "name": "token: extra key",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "dGVzdC10b2tlbi1mb3Itc2Rr_-AZaz09",
+        "extra": true
+      },
+      "valid": false
+    },
+    {
+      "name": "cancel: carries a token",
+      "raw": {
+        "rg": 1,
+        "type": "cancel",
+        "id": "a1",
+        "token": "dGVzdC10b2tlbi1mb3Itc2Rr_-AZaz09"
+      },
+      "valid": false
+    },
+    {
+      "name": "token: no id",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "token": "dGVzdC10b2tlbi1mb3Itc2Rr_-AZaz09"
+      },
+      "valid": false
+    },
+    {
+      "name": "token: no token",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1"
+      },
+      "valid": false
+    },
+    {
+      "name": "error: no code",
+      "raw": {
+        "rg": 1,
+        "type": "error",
+        "id": "a1"
+      },
+      "valid": false
+    },
+    {
+      "name": "height: no px",
+      "raw": {
+        "rg": 1,
+        "type": "height"
+      },
+      "valid": false
+    },
+    {
+      "name": "ready: carries an id",
+      "raw": {
+        "rg": 1,
+        "type": "ready",
+        "id": "a1"
+      },
+      "valid": false
+    },
+    {
+      "name": "__proto__ key (object)",
+      "raw": {
+        "rg": 1,
+        "type": "ready",
+        "__proto__": {
+          "x": 1
+        }
+      },
+      "valid": false
+    },
+    {
+      "name": "__proto__ key (text)",
+      "raw": "{\"rg\":1,\"type\":\"ready\",\"__proto__\":{\"x\":1}}",
+      "valid": false
+    },
+    {
+      "name": "constructor key",
+      "raw": {
+        "rg": 1,
+        "type": "ready",
+        "constructor": {}
+      },
+      "valid": false
+    },
+    {
+      "name": "toString key",
+      "raw": {
+        "rg": 1,
+        "type": "ready",
+        "toString": "x"
+      },
+      "valid": false
+    },
+    {
+      "name": "null",
+      "raw": null,
+      "valid": false
+    },
+    {
+      "name": "array",
+      "raw": [
+        {
+          "rg": 1,
+          "type": "ready"
+        }
+      ],
+      "valid": false
+    },
+    {
+      "name": "empty array",
+      "raw": [],
+      "valid": false
+    },
+    {
+      "name": "number",
+      "raw": 1,
+      "valid": false
+    },
+    {
+      "name": "boolean",
+      "raw": true,
+      "valid": false
+    },
+    {
+      "name": "empty object",
+      "raw": {},
+      "valid": false
+    },
+    {
+      "name": "id: empty",
+      "raw": {
+        "rg": 1,
+        "type": "cancel",
+        "id": ""
+      },
+      "valid": false
+    },
+    {
+      "name": "id: 65 characters",
+      "raw": {
+        "rg": 1,
+        "type": "cancel",
+        "id": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      },
+      "valid": false
+    },
+    {
+      "name": "id: space",
+      "raw": {
+        "rg": 1,
+        "type": "cancel",
+        "id": "a b"
+      },
+      "valid": false
+    },
+    {
+      "name": "id: dot",
+      "raw": {
+        "rg": 1,
+        "type": "cancel",
+        "id": "a.b"
+      },
+      "valid": false
+    },
+    {
+      "name": "id: non-ASCII",
+      "raw": {
+        "rg": 1,
+        "type": "cancel",
+        "id": "aé"
+      },
+      "valid": false
+    },
+    {
+      "name": "id: trailing newline",
+      "raw": {
+        "rg": 1,
+        "type": "cancel",
+        "id": "a1\n"
+      },
+      "valid": false
+    },
+    {
+      "name": "id: number",
+      "raw": {
+        "rg": 1,
+        "type": "cancel",
+        "id": 1
+      },
+      "valid": false
+    },
+    {
+      "name": "id: null",
+      "raw": {
+        "rg": 1,
+        "type": "cancel",
+        "id": null
+      },
+      "valid": false
+    },
+    {
+      "name": "token: empty",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": ""
+      },
+      "valid": false
+    },
+    {
+      "name": "token: 2049 characters",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
+      },
+      "valid": false
+    },
+    {
+      "name": "token: plus sign",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "ab+cd"
+      },
+      "valid": false
+    },
+    {
+      "name": "token: slash",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "ab/cd"
+      },
+      "valid": false
+    },
+    {
+      "name": "token: padding",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "abcd=="
+      },
+      "valid": false
+    },
+    {
+      "name": "token: space",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "ab cd"
+      },
+      "valid": false
+    },
+    {
+      "name": "token: trailing newline",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "abcd\n"
+      },
+      "valid": false
+    },
+    {
+      "name": "token: non-ASCII",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "abé"
+      },
+      "valid": false
+    },
+    {
+      "name": "token: number",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": 12
+      },
+      "valid": false
+    },
+    {
+      "name": "token: object",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": {
+          "v": "dGVzdC10b2tlbi1mb3Itc2Rr_-AZaz09"
+        }
+      },
+      "valid": false
+    },
+    {
+      "name": "error code: empty",
+      "raw": {
+        "rg": 1,
+        "type": "error",
+        "id": "a1",
+        "code": ""
+      },
+      "valid": false
+    },
+    {
+      "name": "error code: 65 characters",
+      "raw": {
+        "rg": 1,
+        "type": "error",
+        "id": "a1",
+        "code": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+      },
+      "valid": false
+    },
+    {
+      "name": "error code: uppercase",
+      "raw": {
+        "rg": 1,
+        "type": "error",
+        "id": "a1",
+        "code": "Pow-invalid"
+      },
+      "valid": false
+    },
+    {
+      "name": "error code: underscore",
+      "raw": {
+        "rg": 1,
+        "type": "error",
+        "id": "a1",
+        "code": "pow_invalid"
+      },
+      "valid": false
+    },
+    {
+      "name": "error code: space",
+      "raw": {
+        "rg": 1,
+        "type": "error",
+        "id": "a1",
+        "code": "pow invalid"
+      },
+      "valid": false
+    },
+    {
+      "name": "error code: number",
+      "raw": {
+        "rg": 1,
+        "type": "error",
+        "id": "a1",
+        "code": 400
+      },
+      "valid": false
+    },
+    {
+      "name": "height: 119",
+      "raw": {
+        "rg": 1,
+        "type": "height",
+        "px": 119
+      },
+      "valid": false
+    },
+    {
+      "name": "height: 2001",
+      "raw": {
+        "rg": 1,
+        "type": "height",
+        "px": 2001
+      },
+      "valid": false
+    },
+    {
+      "name": "height: 0",
+      "raw": {
+        "rg": 1,
+        "type": "height",
+        "px": 0
+      },
+      "valid": false
+    },
+    {
+      "name": "height: negative",
+      "raw": {
+        "rg": 1,
+        "type": "height",
+        "px": -480
+      },
+      "valid": false
+    },
+    {
+      "name": "height: fraction",
+      "raw": {
+        "rg": 1,
+        "type": "height",
+        "px": 120.5
+      },
+      "valid": false
+    },
+    {
+      "name": "height: string",
+      "raw": {
+        "rg": 1,
+        "type": "height",
+        "px": "480"
+      },
+      "valid": false
+    },
+    {
+      "name": "height: null",
+      "raw": {
+        "rg": 1,
+        "type": "height",
+        "px": null
+      },
+      "valid": false
+    },
+    {
+      "name": "height: huge",
+      "raw": {
+        "rg": 1,
+        "type": "height",
+        "px": 1e+21
+      },
+      "valid": false
+    },
+    {
+      "name": "text: ready",
+      "raw": "{\"rg\":1,\"type\":\"ready\"}",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "ready"
+      }
+    },
+    {
+      "name": "text: token",
+      "raw": "{\"rg\":1,\"type\":\"token\",\"id\":\"a1\",\"token\":\"dGVzdC10b2tlbi1mb3Itc2Rr_-AZaz09\"}",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "dGVzdC10b2tlbi1mb3Itc2Rr_-AZaz09"
+      }
+    },
+    {
+      "name": "text: surrounding whitespace",
+      "raw": " \n\t{\"rg\":1,\"type\":\"ready\"}\r\n ",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "ready"
+      }
+    },
+    {
+      "name": "text: 4096 bytes",
+      "raw": "{\"rg\":1,\"type\":\"ready\"}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "ready"
+      }
+    },
+    {
+      "name": "text: 4097 bytes (over the cap)",
+      "raw": "{\"rg\":1,\"type\":\"ready\"}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ",
+      "valid": false
+    },
+    {
+      "name": "text: over the cap, well-formed",
+      "raw": "{\"rg\":1,\"type\":\"token\",\"id\":\"a1\",\"token\":\"TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT\"}",
+      "valid": false
+    },
+    {
+      "name": "text: multibyte characters over the cap",
+      "raw": "{\"rg\":1,\"type\":\"ready\",\"k\":\"éééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééééé\"}",
+      "valid": false
+    },
+    {
+      "name": "text: duplicate key",
+      "raw": "{\"rg\":1,\"type\":\"ready\",\"type\":\"ready\"}",
+      "valid": false
+    },
+    {
+      "name": "text: duplicate rg",
+      "raw": "{\"rg\":1,\"rg\":1,\"type\":\"ready\"}",
+      "valid": false
+    },
+    {
+      "name": "text: byte-order mark",
+      "raw": "﻿{\"rg\":1,\"type\":\"ready\"}",
+      "valid": false
+    },
+    {
+      "name": "text: trailing garbage",
+      "raw": "{\"rg\":1,\"type\":\"ready\"} x",
+      "valid": false
+    },
+    {
+      "name": "text: not JSON",
+      "raw": "ready",
+      "valid": false
+    },
+    {
+      "name": "text: empty",
+      "raw": "",
+      "valid": false
+    },
+    {
+      "name": "text: null",
+      "raw": "null",
+      "valid": false
+    },
+    {
+      "name": "text: array",
+      "raw": "[]",
+      "valid": false
+    },
+    {
+      "name": "text: number",
+      "raw": "1",
+      "valid": false
+    },
+    {
+      "name": "text: single quotes",
+      "raw": "{'rg':1,'type':'ready'}",
+      "valid": false
+    },
+    {
+      "name": "text: trailing comma",
+      "raw": "{\"rg\":1,\"type\":\"ready\",}",
+      "valid": false
+    },
+    {
+      "name": "text: NaN height",
+      "raw": "{\"rg\":1,\"type\":\"height\",\"px\":NaN}",
+      "valid": false
+    },
+    {
+      "name": "text: escaped duplicate key (\\u0074ype)",
+      "raw": "{\"rg\":1,\"type\":\"ready\",\"\\u0074ype\":\"ready\"}",
+      "valid": false
+    },
+    {
+      "name": "text: escaped key alone (\\u0074ype)",
+      "raw": "{\"rg\":1,\"\\u0074ype\":\"ready\"}",
+      "valid": false
+    },
+    {
+      "name": "text: escaped __proto__ key",
+      "raw": "{\"rg\":1,\"type\":\"ready\",\"\\u005f\\u005fproto\\u005f\\u005f\":{}}",
+      "valid": false
+    },
+    {
+      "name": "text: escaped id (\\u0061)",
+      "raw": "{\"rg\":1,\"type\":\"cancel\",\"id\":\"\\u0061b\"}",
+      "valid": false
+    },
+    {
+      "name": "text: escaped hyphen in id",
+      "raw": "{\"rg\":1,\"type\":\"cancel\",\"id\":\"a\\u002db\"}",
+      "valid": false
+    },
+    {
+      "name": "text: NUL in token",
+      "raw": "{\"rg\":1,\"type\":\"token\",\"id\":\"a1\",\"token\":\"ab\\u0000cd\"}",
+      "valid": false
+    },
+    {
+      "name": "text: escaped token character",
+      "raw": "{\"rg\":1,\"type\":\"token\",\"id\":\"a1\",\"token\":\"\\u0041bcd\"}",
+      "valid": false
+    },
+    {
+      "name": "text: escaped solidus in error code",
+      "raw": "{\"rg\":1,\"type\":\"error\",\"id\":\"a1\",\"code\":\"a\\/b\"}",
+      "valid": false
+    },
+    {
+      "name": "text: lone high surrogate in id",
+      "raw": "{\"rg\":1,\"type\":\"cancel\",\"id\":\"\\ud800\"}",
+      "valid": false
+    },
+    {
+      "name": "text: surrogate pair in id",
+      "raw": "{\"rg\":1,\"type\":\"cancel\",\"id\":\"\\ud83d\\ude00\"}",
+      "valid": false
+    },
+    {
+      "name": "object: lone surrogate in id",
+      "raw": {
+        "rg": 1,
+        "type": "cancel",
+        "id": "\ud800"
+      },
+      "valid": false
+    },
+    {
+      "name": "object: lone surrogate in token",
+      "raw": {
+        "rg": 1,
+        "type": "token",
+        "id": "a1",
+        "token": "ab\udc00"
+      },
+      "valid": false
+    },
+    {
+      "name": "text: px 480",
+      "raw": "{\"rg\":1,\"type\":\"height\",\"px\":480}",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "height",
+        "px": 480
+      }
+    },
+    {
+      "name": "text: px 480.0",
+      "raw": "{\"rg\":1,\"type\":\"height\",\"px\":480.0}",
+      "valid": false
+    },
+    {
+      "name": "text: px 1.2e2",
+      "raw": "{\"rg\":1,\"type\":\"height\",\"px\":1.2e2}",
+      "valid": false
+    },
+    {
+      "name": "text: px 120e0",
+      "raw": "{\"rg\":1,\"type\":\"height\",\"px\":120e0}",
+      "valid": false
+    },
+    {
+      "name": "text: px 4.8E2",
+      "raw": "{\"rg\":1,\"type\":\"height\",\"px\":4.8E2}",
+      "valid": false
+    },
+    {
+      "name": "text: px -0",
+      "raw": "{\"rg\":1,\"type\":\"height\",\"px\":-0}",
+      "valid": false
+    },
+    {
+      "name": "text: px +480",
+      "raw": "{\"rg\":1,\"type\":\"height\",\"px\":+480}",
+      "valid": false
+    },
+    {
+      "name": "text: px leading zero",
+      "raw": "{\"rg\":1,\"type\":\"height\",\"px\":0480}",
+      "valid": false
+    },
+    {
+      "name": "text: px 1e21",
+      "raw": "{\"rg\":1,\"type\":\"height\",\"px\":1e21}",
+      "valid": false
+    },
+    {
+      "name": "text: px huge integer",
+      "raw": "{\"rg\":1,\"type\":\"height\",\"px\":99999999999999999999999999}",
+      "valid": false
+    },
+    {
+      "name": "text: px 2001",
+      "raw": "{\"rg\":1,\"type\":\"height\",\"px\":2001}",
+      "valid": false
+    },
+    {
+      "name": "text: rg 1.0",
+      "raw": "{\"rg\":1.0,\"type\":\"ready\"}",
+      "valid": false
+    },
+    {
+      "name": "text: rg 1e0",
+      "raw": "{\"rg\":1e0,\"type\":\"ready\"}",
+      "valid": false
+    },
+    {
+      "name": "text: rg 10e-1",
+      "raw": "{\"rg\":10e-1,\"type\":\"ready\"}",
+      "valid": false
+    },
+    {
+      "name": "text: px with whitespace around the number",
+      "raw": "{\"rg\":1,\"type\":\"height\",\"px\": 480 }",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "height",
+        "px": 480
+      }
+    },
+    {
+      "name": "object: px -0",
+      "raw": {
+        "rg": 1,
+        "type": "height",
+        "px": 0
+      },
+      "valid": false
+    }
+  ],
+  "nativeCases": [
+    {
+      "name": "puzzle: slider",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "puzzle",
+        "id": "req-1",
+        "puzzle": {
+          "kind": "slider",
+          "challenge": "p1",
+          "assets": [
+            "/v1/puzzle/asset/s0.1.mac",
+            "/v1/puzzle/asset/s1.1.mac"
+          ],
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "attemptsLeft": 1
+        },
+        "signalsKey": "k_-9",
+        "cid": "AAECAwQFBgcICQoLDA0ODw",
+        "locale": "pt-BR",
+        "theme": "dark"
+      }
+    },
+    {
+      "name": "puzzle: the largest (over the page-message cap)",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"odd-one-out\",\"challenge\":\"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\",\"assets\":[\"/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0\",\"/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1\",\"/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2\",\"/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa3\",\"/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa4\",\"/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa5\",\"/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa6\",\"/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa7\",\"/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8\"],\"options\":9,\"attemptsLeft\":1,\"step\":1,\"steps\":2},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "puzzle",
+        "id": "req-1",
+        "puzzle": {
+          "kind": "odd-one-out",
+          "challenge": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "assets": [
+            "/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa0",
+            "/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa1",
+            "/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa2",
+            "/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa3",
+            "/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa4",
+            "/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa5",
+            "/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa6",
+            "/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa7",
+            "/v1/puzzle/asset/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8"
+          ],
+          "options": 9,
+          "attemptsLeft": 1,
+          "step": 1,
+          "steps": 2
+        },
+        "signalsKey": "k_-9",
+        "cid": "AAECAwQFBgcICQoLDA0ODw",
+        "locale": "pt-BR",
+        "theme": "dark"
+      }
+    },
+    {
+      "name": "puzzle: every theme (light)",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"light\"}",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "puzzle",
+        "id": "req-1",
+        "puzzle": {
+          "kind": "slider",
+          "challenge": "p1",
+          "assets": [
+            "/v1/puzzle/asset/s0.1.mac",
+            "/v1/puzzle/asset/s1.1.mac"
+          ],
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "attemptsLeft": 1
+        },
+        "signalsKey": "k_-9",
+        "cid": "AAECAwQFBgcICQoLDA0ODw",
+        "locale": "pt-BR",
+        "theme": "light"
+      }
+    },
+    {
+      "name": "puzzle: every theme (auto)",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"auto\"}",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "puzzle",
+        "id": "req-1",
+        "puzzle": {
+          "kind": "slider",
+          "challenge": "p1",
+          "assets": [
+            "/v1/puzzle/asset/s0.1.mac",
+            "/v1/puzzle/asset/s1.1.mac"
+          ],
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "attemptsLeft": 1
+        },
+        "signalsKey": "k_-9",
+        "cid": "AAECAwQFBgcICQoLDA0ODw",
+        "locale": "pt-BR",
+        "theme": "auto"
+      }
+    },
+    {
+      "name": "puzzle: unknown kind kept",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"new-kind\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "puzzle",
+        "id": "req-1",
+        "puzzle": {
+          "kind": "new-kind",
+          "challenge": "p1",
+          "assets": [
+            "/v1/puzzle/asset/s0.1.mac",
+            "/v1/puzzle/asset/s1.1.mac"
+          ],
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "attemptsLeft": 1
+        },
+        "signalsKey": "k_-9",
+        "cid": "AAECAwQFBgcICQoLDA0ODw",
+        "locale": "pt-BR",
+        "theme": "dark"
+      }
+    },
+    {
+      "name": "puzzle: unknown puzzle fields dropped",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1,\"extra\":1,\"hint\":\"x\"},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "puzzle",
+        "id": "req-1",
+        "puzzle": {
+          "kind": "slider",
+          "challenge": "p1",
+          "assets": [
+            "/v1/puzzle/asset/s0.1.mac",
+            "/v1/puzzle/asset/s1.1.mac"
+          ],
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "attemptsLeft": 1
+        },
+        "signalsKey": "k_-9",
+        "cid": "AAECAwQFBgcICQoLDA0ODw",
+        "locale": "pt-BR",
+        "theme": "dark"
+      }
+    },
+    {
+      "name": "puzzle: whitespace around the text",
+      "raw": " \n{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}\t ",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "puzzle",
+        "id": "req-1",
+        "puzzle": {
+          "kind": "slider",
+          "challenge": "p1",
+          "assets": [
+            "/v1/puzzle/asset/s0.1.mac",
+            "/v1/puzzle/asset/s1.1.mac"
+          ],
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "attemptsLeft": 1
+        },
+        "signalsKey": "k_-9",
+        "cid": "AAECAwQFBgcICQoLDA0ODw",
+        "locale": "pt-BR",
+        "theme": "dark"
+      }
+    },
+    {
+      "name": "mfa",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"req-2\",\"requestToken\":\"req_Token-1\"}",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "mfa",
+        "id": "req-2",
+        "requestToken": "req_Token-1"
+      }
+    },
+    {
+      "name": "mfa: with languageCode",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"req-2\",\"requestToken\":\"req_Token-1\",\"languageCode\":\"fr-CA\"}",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "mfa",
+        "id": "req-2",
+        "requestToken": "req_Token-1",
+        "languageCode": "fr-CA"
+      }
+    },
+    {
+      "name": "id: 64 characters",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\",\"requestToken\":\"req_Token-1\"}",
+      "valid": true,
+      "parsed": {
+        "rg": 1,
+        "type": "mfa",
+        "id": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "requestToken": "req_Token-1"
+      }
+    },
+    {
+      "name": "object, not text",
+      "raw": {
+        "rg": 1,
+        "type": "puzzle",
+        "id": "req-1",
+        "puzzle": {
+          "kind": "slider",
+          "challenge": "p1",
+          "assets": [
+            "/v1/puzzle/asset/s0.1.mac",
+            "/v1/puzzle/asset/s1.1.mac"
+          ],
+          "range": {
+            "min": 0,
+            "max": 100,
+            "step": 1
+          },
+          "attemptsLeft": 1
+        },
+        "signalsKey": "k_-9",
+        "cid": "AAECAwQFBgcICQoLDA0ODw",
+        "locale": "pt-BR",
+        "theme": "dark"
+      },
+      "valid": false
+    },
+    {
+      "name": "null",
+      "raw": null,
+      "valid": false
+    },
+    {
+      "name": "number",
+      "raw": 1,
+      "valid": false
+    },
+    {
+      "name": "text: array",
+      "raw": "[{\"rg\":1,\"type\":\"mfa\",\"id\":\"req-2\",\"requestToken\":\"req_Token-1\"}]",
+      "valid": false
+    },
+    {
+      "name": "text: null",
+      "raw": "null",
+      "valid": false
+    },
+    {
+      "name": "text: not JSON",
+      "raw": "mfa",
+      "valid": false
+    },
+    {
+      "name": "text: empty",
+      "raw": "",
+      "valid": false
+    },
+    {
+      "name": "rg 2",
+      "raw": "{\"rg\":2,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "rg \"1\"",
+      "raw": "{\"rg\":\"1\",\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "rg missing",
+      "raw": "{\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "type unknown",
+      "raw": "{\"rg\":1,\"type\":\"execute\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "type: a page message",
+      "raw": "{\"rg\":1,\"type\":\"ready\"}",
+      "valid": false
+    },
+    {
+      "name": "extra key",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\",\"x\":1}",
+      "valid": false
+    },
+    {
+      "name": "mfa: extra key (a code)",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"req-2\",\"requestToken\":\"req_Token-1\",\"code\":\"123456\"}",
+      "valid": false
+    },
+    {
+      "name": "__proto__ key",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"a\",\"requestToken\":\"t\",\"__proto__\":{}}",
+      "valid": false
+    },
+    {
+      "name": "missing signalsKey",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "missing cid",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "missing locale",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "missing theme",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\"}",
+      "valid": false
+    },
+    {
+      "name": "missing puzzle",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "id empty",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "id 65 characters",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "id dot",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"a.b\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "id number",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":1,\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "signalsKey padding",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"abc=\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "signalsKey 65 characters",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "cid slash",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"a/b\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "locale malformed",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"english\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "locale 36 characters",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"abc-abcdefgh-abcdefgh-abcdefgh-abcd\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "theme unknown",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"sepia\"}",
+      "valid": false
+    },
+    {
+      "name": "puzzle not an object",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":\"x\",\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "puzzle: asset not a capability path",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"https://x/a\",\"/v1/puzzle/asset/b\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "puzzle: fractional attemptsLeft",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1.5},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "puzzle: slider without its range",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "puzzle: step without steps",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1,\"step\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "puzzle: step past steps",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1,\"step\":3,\"steps\":2},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "puzzle: challenge over 4096",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "requestToken missing",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"req-2\"}",
+      "valid": false
+    },
+    {
+      "name": "requestToken with a plus",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"req-2\",\"requestToken\":\"a+b\"}",
+      "valid": false
+    },
+    {
+      "name": "languageCode malformed",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"req-2\",\"requestToken\":\"req_Token-1\",\"languageCode\":\"x\"}",
+      "valid": false
+    },
+    {
+      "name": "languageCode null",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"req-2\",\"requestToken\":\"req_Token-1\",\"languageCode\":null}",
+      "valid": false
+    },
+    {
+      "name": "text: over the cap",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"req-2\",\"requestToken\":\"req_Token-1\"}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ",
+      "valid": false
+    },
+    {
+      "name": "text: escape (\\u0061 id)",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"\\u0061\",\"requestToken\":\"t\"}",
+      "valid": false
+    },
+    {
+      "name": "text: escaped quote in a token",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"a\",\"requestToken\":\"a\\\"b\"}",
+      "valid": false
+    },
+    {
+      "name": "text: duplicate key",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"a\",\"id\":\"a\",\"requestToken\":\"t\"}",
+      "valid": false
+    },
+    {
+      "name": "text: nested duplicate key",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"attemptsLeft\":1,\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "text: rg 1.0",
+      "raw": "{\"rg\":1.0,\"type\":\"mfa\",\"id\":\"a\",\"requestToken\":\"t\"}",
+      "valid": false
+    },
+    {
+      "name": "text: rg 1e0",
+      "raw": "{\"rg\":1e0,\"type\":\"mfa\",\"id\":\"a\",\"requestToken\":\"t\"}",
+      "valid": false
+    },
+    {
+      "name": "text: fractional puzzle number",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":1.0},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "text: negative puzzle number",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":-0,\"max\":100,\"step\":1},\"attemptsLeft\":1},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "text: leading zero",
+      "raw": "{\"rg\":1,\"type\":\"puzzle\",\"id\":\"req-1\",\"puzzle\":{\"kind\":\"slider\",\"challenge\":\"p1\",\"assets\":[\"/v1/puzzle/asset/s0.1.mac\",\"/v1/puzzle/asset/s1.1.mac\"],\"range\":{\"min\":0,\"max\":100,\"step\":1},\"attemptsLeft\":01},\"signalsKey\":\"k_-9\",\"cid\":\"AAECAwQFBgcICQoLDA0ODw\",\"locale\":\"pt-BR\",\"theme\":\"dark\"}",
+      "valid": false
+    },
+    {
+      "name": "text: byte-order mark",
+      "raw": "﻿{\"rg\":1,\"type\":\"mfa\",\"id\":\"req-2\",\"requestToken\":\"req_Token-1\"}",
+      "valid": false
+    },
+    {
+      "name": "text: raw control character in a string",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"req\u00012\",\"requestToken\":\"req_Token-1\"}",
+      "valid": false
+    },
+    {
+      "name": "text: trailing comma",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"req-2\",\"requestToken\":\"req_Token-1\",}",
+      "valid": false
+    },
+    {
+      "name": "text: trailing garbage",
+      "raw": "{\"rg\":1,\"type\":\"mfa\",\"id\":\"req-2\",\"requestToken\":\"req_Token-1\"} x",
+      "valid": false
+    }
+  ],
+  "urlCases": [
+    {
+      "name": "ios",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "url": "https://js.revokegpt.com/v1/app?k=rgpk_7Hq2LmZ9xK4aRb3Nf8Tw&p=ios&id=com.example.app&hl=en&t=auto"
+    },
+    {
+      "name": "android, dark, pt-BR",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "android",
+        "appId": "com.example.my_app",
+        "locale": "pt-BR",
+        "theme": "dark"
+      },
+      "url": "https://js.revokegpt.com/v1/app?k=rgpk_7Hq2LmZ9xK4aRb3Nf8Tw&p=android&id=com.example.my_app&hl=pt-BR&t=dark"
+    },
+    {
+      "name": "light",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "light"
+      },
+      "url": "https://js.revokegpt.com/v1/app?k=rgpk_7Hq2LmZ9xK4aRb3Nf8Tw&p=ios&id=com.example.app&hl=en&t=light"
+    },
+    {
+      "name": "ios bundle id with hyphen",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.my-co.app-1",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "url": "https://js.revokegpt.com/v1/app?k=rgpk_7Hq2LmZ9xK4aRb3Nf8Tw&p=ios&id=com.my-co.app-1&hl=en&t=auto"
+    },
+    {
+      "name": "origin with a trailing slash",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com/",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "url": "https://js.revokegpt.com/v1/app?k=rgpk_7Hq2LmZ9xK4aRb3Nf8Tw&p=ios&id=com.example.app&hl=en&t=auto"
+    },
+    {
+      "name": "staging origin with a port",
+      "input": {
+        "widgetOrigin": "https://js.staging.revokegpt.com:8443",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "url": "https://js.staging.revokegpt.com:8443/v1/app?k=rgpk_7Hq2LmZ9xK4aRb3Nf8Tw&p=ios&id=com.example.app&hl=en&t=auto"
+    },
+    {
+      "name": "loopback http (iOS simulator)",
+      "input": {
+        "widgetOrigin": "http://localhost:8788",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "url": "http://localhost:8788/v1/app?k=rgpk_7Hq2LmZ9xK4aRb3Nf8Tw&p=ios&id=com.example.app&hl=en&t=auto"
+    },
+    {
+      "name": "emulator host http (Android emulator)",
+      "input": {
+        "widgetOrigin": "http://10.0.2.2:8788",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "android",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "url": "http://10.0.2.2:8788/v1/app?k=rgpk_7Hq2LmZ9xK4aRb3Nf8Tw&p=android&id=com.example.app&hl=en&t=auto"
+    },
+    {
+      "name": "http to a public host",
+      "input": {
+        "widgetOrigin": "http://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "origin with a path",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com/v1",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "origin with a query",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com?x=1",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "origin with a fragment",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com#x",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "origin with userinfo",
+      "input": {
+        "widgetOrigin": "https://u:p@js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "origin with an uppercase host (must be canonical)",
+      "input": {
+        "widgetOrigin": "https://JS.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "origin with the default port spelled out",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com:443",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "not an origin",
+      "input": {
+        "widgetOrigin": "js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "ftp origin",
+      "input": {
+        "widgetOrigin": "ftp://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "empty origin",
+      "input": {
+        "widgetOrigin": "",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "site key: secret key shape",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgsk_7Hq2LmZ9xK4a_Rb3Nf8Tw1Yc6Vg0Jp5Ds2Ek9Ux4Ih7Ma07q80x",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "site key: too short",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8T",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "site key: with an ampersand",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3N&8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "platform: web",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "web",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "platform: uppercase",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "IOS",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "app id: android single segment",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "android",
+        "appId": "example",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "app id: android with a hyphen",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "android",
+        "appId": "com.my-co.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "app id: ios with an underscore",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.my_co.app",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "app id: query injection",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app&t=dark",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "app id: empty",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "",
+        "locale": "en",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "locale: empty",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "locale: underscore",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en_US",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "locale: one letter",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "e",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "locale: injection",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en&k=x",
+        "theme": "auto"
+      },
+      "error": true
+    },
+    {
+      "name": "theme: unknown",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "blue"
+      },
+      "error": true
+    },
+    {
+      "name": "theme: uppercase",
+      "input": {
+        "widgetOrigin": "https://js.revokegpt.com",
+        "siteKey": "rgpk_7Hq2LmZ9xK4aRb3Nf8Tw",
+        "platform": "ios",
+        "appId": "com.example.app",
+        "locale": "en",
+        "theme": "Dark"
+      },
+      "error": true
+    }
+  ]
+}
